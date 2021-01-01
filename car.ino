@@ -33,7 +33,7 @@ void setup()
 void advance(int a) // forward
 {
     digitalWrite(pinRB, LOW);
-    digitalWrite(pinRF, HIGH);
+    digitalWrite(pinRF, LOW);
     digitalWrite(pinLB, LOW);
     digitalWrite(pinLF, HIGH);
     delay(a * 15);
@@ -151,32 +151,41 @@ void ask_pin_R() // test right distance
     Serial.println(Rdistance);
     Rspeedd = Rdistance;
 }
+// void loop()
+// {
+//     myservo.write(90);
+//     detection();
+//     if (directionn == 2)
+//     {
+//         back(3);
+//         turnL(2);
+//         Serial.print(" Reverse ");
+//     }
+//     if (directionn == 6)
+//     {
+//         back(1);
+//         turnR(6);
+//         Serial.print(" Right ");
+//     }
+//     if (directionn == 4)
+//     {
+//         back(1);
+//         turnL(6);
+//         Serial.print(" Left ");
+//     }
+//     if (directionn == 8)
+//     {
+//         advance(1);
+//         Serial.print(" Advance ");
+//         Serial.print(" ");
+//     }
+// }
+
 void loop()
 {
-    myservo.write(90);
-    detection();
-    if (directionn == 2)
-    {
-        back(3);
-        turnL(2);
-        Serial.print(" Reverse ");
-    }
-    if (directionn == 6)
-    {
-        back(1);
-        turnR(6);
-        Serial.print(" Right ");
-    }
-    if (directionn == 4)
-    {
-        back(1);
-        turnL(6);
-        Serial.print(" Left ");
-    }
-    if (directionn == 8)
-    {
-        advance(1);
-        Serial.print(" Advance ");
-        Serial.print(" ");
-    }
+    advance(3);
+    turnL(3);
+    ask_pin_F();
+    stopp(3);
+    delay(3000);
 }
