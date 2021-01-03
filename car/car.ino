@@ -33,7 +33,7 @@ void setup()
 void advance(int a) // forward
 {
     digitalWrite(pinRB, LOW);
-    digitalWrite(pinRF, LOW);
+    digitalWrite(pinRF, HIGH);
     digitalWrite(pinLB, LOW);
     digitalWrite(pinLF, HIGH);
     delay(a * 15);
@@ -184,7 +184,7 @@ void ask_pin_R() // test right distance
 void loop()
 {
     advance(3);
-    turnL(3);
+    // turnL(3);
     ask_pin_F();
     stopp(3);
     delay(3000);
