@@ -151,6 +151,19 @@ void ask_pin_R() // test right distance
     Serial.println(Rdistance);
     Rspeedd = Rdistance;
 }
+
+void get_distance() // test forward distance
+{
+    digitalWrite(outputPin, LOW);
+    delayMicroseconds(2);
+    digitalWrite(outputPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(outputPin, LOW);
+    float distance = pulseIn(inputPin, HIGH);
+    distance = distance / 5.8 / 10;
+    Serial.print("Distance:");
+    Serial.println(distance);
+}
 // void loop()
 // {
 //     myservo.write(90);
@@ -184,8 +197,11 @@ void ask_pin_R() // test right distance
 void loop()
 {
     advance(3);
-    // turnL(3);
-    ask_pin_F();
+    // ask_pin_L();
+    // ask_pin_R();
+    // ask_pin_F();
+    delay(1000);
     stopp(3);
-    delay(3000);
+    get_distance();
+    delay(1000);
 }
