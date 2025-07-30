@@ -16,8 +16,7 @@
 #define SERVO_FORWARD           110
 #define SERVO_LEFT              SERVO_FORWARD + 60
 #define SERVO_RIGHT             SERVO_FORWARD - 60
-
-#define DELAY                   250
+#define SERVO_DELAY             250
 
 #define MOTOR_PWM               125
 #define MOTOR_FORWARD           1
@@ -64,7 +63,7 @@ void driveStop()              { drive(MOTOR_STOP,     MOTOR_STOP,     100  ); }
 
 float measure(int direction) {
   servo.write(direction);
-  delay(DELAY);
+  delay(SERVO_DELAY);
   
   digitalWrite(PIN_SONAR_TRIGGER, LOW);
   delayMicroseconds(2);
